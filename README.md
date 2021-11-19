@@ -1,10 +1,34 @@
-# Advanced Sample Hardhat Project
+# Chainlink <> Arbitrum
 
-This project demonstrates an advanced Hardhat use case, integrating other tools commonly used alongside Hardhat in the ecosystem.
+This project demonstrates how to use Chainlink Price Feeds on Arbitrum Rinkeby Testnet Rollup.
 
-The project comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts. It also comes with a variety of other tools, preconfigured to work with the project code.
+## Getting started
 
-Try running some of the following tasks:
+### Prerequisites
+
+Be sure to have installed the following
+
+- [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+- [Node.js](https://nodejs.org/en/download/)
+- [Yarn](https://yarnpkg.com/getting-started/install) 
+
+### Installation
+
+1) Clone the repo
+```
+git clone https://github.com/andrejrakic/chainlink-arbitrum.git
+cd chainlink-arbitrum
+```
+2) Install packages
+```
+yarn install
+```
+3) Compile contracts
+```
+npx hardhat compile
+```
+
+Additionally, try running some of the following tasks:
 
 ```shell
 npx hardhat accounts
@@ -25,22 +49,18 @@ npx solhint 'contracts/**/*.sol'
 npx solhint 'contracts/**/*.sol' --fix
 ```
 
-# Etherscan verification
+## Deployment
 
-To try out Etherscan verification, you first need to deploy a contract to an Ethereum network that's supported by Etherscan, such as Ropsten.
-
-In this project, copy the .env.example file to a file named .env, and then edit it to fill in the details. Enter your Etherscan API key, your Ropsten node URL (eg from Alchemy), and the private key of the account which will send the deployment transaction. With a valid .env file in place, first deploy your contract:
+In this project, copy the .env.example file to a file named .env, and then edit it to fill in the details. Enter your Chainlink Rinkeby node URL (eg from Alchemy), and the private key of the account which will send the deployment transaction.
 
 ```shell
-hardhat run --network ropsten scripts/sample-script.ts
+hardhat run --network arbitrum_rinkeby scripts/deploy.ts
 ```
 
-Then, copy the deployment address and paste it in to replace `DEPLOYED_CONTRACT_ADDRESS` in this command:
+## Arbiscan verification
+
+Enter your Arbiscan API key in .env file. Then, copy the deployment address and paste it in to replace `DEPLOYED_CONTRACT_ADDRESS` in this command:
 
 ```shell
-npx hardhat verify --network ropsten DEPLOYED_CONTRACT_ADDRESS "Hello, Hardhat!"
+npx hardhat verify --network arbitrum_rinkeby DEPLOYED_CONTRACT_ADDRESS 
 ```
-
-# Performance optimizations
-
-For faster runs of your tests and scripts, consider skipping ts-node's type checking by setting the environment variable `TS_NODE_TRANSPILE_ONLY` to `1` in hardhat's environment. For more details see [the documentation](https://hardhat.org/guides/typescript.html#performance-optimizations).
