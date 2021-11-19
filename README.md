@@ -49,7 +49,7 @@ npx solhint 'contracts/**/*.sol'
 npx solhint 'contracts/**/*.sol' --fix
 ```
 
-## Deployment
+### Deployment
 
 In this project, copy the .env.example file to a file named .env, and then edit it to fill in the details. Enter your Chainlink Rinkeby node URL (eg from Alchemy), and the private key of the account which will send the deployment transaction.
 
@@ -57,7 +57,7 @@ In this project, copy the .env.example file to a file named .env, and then edit 
 hardhat run --network arbitrum_rinkeby scripts/deploy.ts
 ```
 
-## Arbiscan verification
+### Arbiscan verification
 
 Enter your Arbiscan API key in .env file. Then, copy the deployment address and paste it in to replace `DEPLOYED_CONTRACT_ADDRESS` in this command:
 
